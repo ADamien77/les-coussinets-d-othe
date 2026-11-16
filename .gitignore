@@ -1,0 +1,13 @@
+# Dépendances éventuelles
+node_modules/
+
+# Fichiers locaux et temporaires
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db
+
+# Dossiers de compilation éventuels
+dist/

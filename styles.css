@@ -1,0 +1,819 @@
+/* ==========================================================
+   LES COUSSINETS D'OTHE — FEUILLE DE STYLE PRINCIPALE
+   Organisation : base, navigation, accueil, prestations,
+   tarifs, salon, contact, pied de page, responsive.
+   ========================================================== */
+
+/* 01 — Variables et styles globaux */
+:root {
+  --blue: #147db2;
+  --navy: #193c4b;
+  --green: #4a9a72;
+  --light: #f4fafb;
+  --ink: #31444a;
+  --muted: #6b7b81;
+  --line: #e4eef0;
+  --radius: 22px;
+  --page-width: 1200px;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 105px;
+}
+body {
+  margin: 0;
+  min-width: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+  color: var(--ink);
+  line-height: 1.65;
+  background: #fff;
+  overflow-wrap: break-word;
+}
+a {
+  color: inherit;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+h1,
+h2,
+h3 {
+  color: var(--navy);
+  line-height: 1.18;
+}
+h1 {
+  padding-top: 20px;
+  letter-spacing: -0.045em;
+  margin-bottom: 25px;
+}
+h2 {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  letter-spacing: -0.03em;
+  margin-bottom: 19px;
+}
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+.container {
+  width: min(92%, var(--page-width));
+  margin-inline: auto;
+}
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+.skip:focus {
+  left: 15px;
+  top: 15px;
+  z-index: 100;
+  background: #fff;
+  padding: 12px;
+}
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+/* 02 — En-tête et navigation */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 1px 15px #153c4c0e;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(10px, 1.5vw, 24px);
+  min-height: 88px;
+}
+.brand {
+  flex: 0 0 auto;
+}
+.brand img {
+  width: clamp(110px, 12vw, 170px);
+  height: 74px;
+  object-fit: contain;
+  object-position: left center;
+}
+.nav p {
+  margin: 0;
+  padding: 0;
+  font-size: clamp(1rem, 1.5vw, 1.55rem);
+}
+.nav nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(9px, 1.5vw, 28px);
+}
+.nav nav a {
+  text-decoration: none;
+  font-size: 0.94rem;
+  font-weight: 650;
+  white-space: nowrap;
+  transition:
+    transform 0.2s,
+    background 0.2s,
+    box-shadow 0.2s;
+}
+.nav nav a:hover,
+.text-link:hover {
+  box-shadow: 0 8px 20px #147db224;
+  transform: translateY(-2px);
+}
+.accueil {
+  background: #609d02;
+  padding: 8px 13px;
+  border-radius: 12px;
+  color: #fff;
+}
+.contact {
+  background: #006fc4;
+  padding: 8px 13px;
+  border-radius: 12px;
+  color: #fff;
+}
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: var(--light);
+  border-radius: 12px;
+  padding: 8px 13px;
+  font-size: 24px;
+  color: var(--navy);
+  cursor: pointer;
+}
+
+/* 03 — Accueil / Hero */
+.hero {
+  background: linear-gradient(125deg, #f5fbfd, #fff);
+  padding: clamp(45px, 5vw, 80px) 0 40px;
+}
+.hero-grid,
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(25px, 4vw, 70px);
+}
+.hero-grid > *,
+.split > * {
+  min-width: 0;
+}
+.eyebrow {
+  display: block;
+  color: var(--green);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  font-weight: 800;
+  margin-bottom: 17px;
+}
+.hero p {
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  max-width: 530px;
+  color: #536970;
+}
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin: 28px 0;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  text-decoration: none;
+  background: var(--blue);
+  color: #fff;
+  padding: 13px 23px;
+  border-radius: 999px;
+  font-weight: 750;
+  box-shadow: 0 8px 20px #147db224;
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+.btn:hover {
+  background: #0c6390;
+  transform: translateY(-2px);
+}
+.text-link {
+  display: inline-block;
+  color: var(--blue);
+  font-weight: 750;
+  text-decoration: none;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.hero-note {
+  font-size: 0.87rem;
+  color: var(--green);
+  font-weight: 700;
+}
+.hero-photo {
+  position: relative;
+  width: 100%;
+  max-width: 90%;
+  justify-self: end;
+  border-radius: 15%;
+  overflow: hidden;
+  box-shadow: 0 25px 60px #194b6120;
+  background: #eaf2f4;
+}
+.hero-photo img {
+  width: 100%;
+  height: clamp(300px, 30vw, 410px);
+  object-fit: cover;
+}
+.photo-sticker {
+  position: absolute;
+  right: 8%;
+  bottom: 5%;
+  background: #fff;
+  border-radius: 30px;
+  padding: 9px 18px;
+  color: var(--green);
+  font-size: 0.82rem;
+  font-weight: 800;
+  box-shadow: 0 3px 14px #0002;
+}
+
+/* 04 — Sections et prestations */
+.section {
+  padding: clamp(60px, 6vw, 92px) 0;
+}
+.section-head {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 45px;
+}
+.section-head p {
+  color: var(--muted);
+}
+.section-prestations {
+  padding: clamp(45px, 4vw, 65px) 0;
+}
+.services,
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+.service,
+.contact-card {
+  min-width: 0;
+  background: #fff;
+  border: 2px solid #649d06;
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  box-shadow: 0 9px 30px #0c3b5109;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    border-color 0.2s;
+}
+.service:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px #0c3b5115;
+  border-color: #0074ca;
+}
+.service-icon {
+  display: grid;
+  place-items: center;
+  background: rgba(114, 55, 10, 0.2);
+  border-radius: 17px;
+  width: 62px;
+  height: 62px;
+  font-size: 1.75rem;
+  margin-bottom: 23px;
+}
+.service p,
+.contact-card p {
+  font-size: 0.93rem;
+  color: #607279;
+  margin-bottom: 0;
+}
+.soft {
+  background: var(--light);
+}
+.split {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.split p {
+  max-width: 550px;
+  color: #617279;
+}
+.info-card {
+  background: #fff;
+  padding: 45px;
+  border-radius: 30px;
+  box-shadow: 0 12px 38px #124b6410;
+  max-width: 440px;
+  justify-self: center;
+}
+.info-symbol {
+  font-size: 3rem;
+  color: var(--green);
+  margin-bottom: 12px;
+}
+.small-pill {
+  display: inline-block;
+  background: #eaf6f5;
+  color: #357e62;
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-size: 0.84rem;
+  font-weight: 750;
+}
+
+/* 05 — Tarifs : cartes chiens, chats et NAC */
+.tarifs {
+  padding: clamp(45px, 5vw, 80px) 0;
+  background: #f8faf7;
+  color: var(--ink);
+}
+.tarifs-container {
+  width: min(92%, var(--page-width));
+  margin-inline: auto;
+}
+.tarifs-intro {
+  text-align: center;
+  margin-bottom: 42px;
+}
+.tarifs-surtitre {
+  color: #43813b;
+  font-size: 0.875rem;
+  letter-spacing: 0.125em;
+  text-transform: uppercase;
+}
+.tarifs-intro h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin: 12px 0;
+  color: var(--navy);
+}
+.tarifs-intro p {
+  color: var(--muted);
+  font-size: 1.0625rem;
+}
+.tarifs-grille {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+.tarif-carte {
+  min-width: 0;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 8px 25px #0000000d;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
+}
+.tarif-carte:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px #0000001a;
+}
+.tarif-entete {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 22px 25px;
+  color: #fff;
+}
+.tarif-entete span {
+  font-size: 30px;
+}
+.tarif-entete h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #fff;
+}
+.chien .tarif-entete {
+  background: #12558c;
+}
+.chat .tarif-entete {
+  background: #2b7827;
+}
+.nac .tarif-entete {
+  background: #72370a;
+}
+.tarif-ligne {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 22px 24px;
+  border-bottom: 1px solid #eee;
+}
+.tarif-ligne:last-child {
+  border-bottom: 0;
+}
+.tarif-ligne span {
+  min-width: 0;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+.tarif-ligne span small {
+  display: block;
+  margin-top: 5px;
+  color: #777;
+  font-size: 0.75rem;
+}
+.tarif-ligne strong {
+  font-size: clamp(1.05rem, 1.6vw, 1.375rem);
+  white-space: nowrap;
+  text-align: right;
+}
+.tarif-ligne strong small {
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+.chien .tarif-ligne strong {
+  color: #12558c;
+}
+.chat .tarif-ligne strong {
+  color: #2b7827;
+}
+.nac .tarif-ligne strong {
+  color: #72370a;
+}
+
+/* 06 — Tarifs : service de transport à domicile */
+.tarifs-domicile {
+  margin-top: 36px;
+  background: #fff;
+  border: 1px solid #dce9d8;
+  border-radius: var(--radius);
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  box-shadow: 0 8px 25px #0000000a;
+}
+.domicile-icone {
+  flex: 0 0 auto;
+  font-size: 46px;
+}
+.domicile-texte {
+  flex: 1;
+  min-width: 0;
+}
+.domicile-texte h3 {
+  font-family: Georgia, serif;
+  font-size: clamp(1.4rem, 2.2vw, 1.8125rem);
+  color: #286b2b;
+  margin: 0 0 12px;
+}
+.domicile-texte p {
+  line-height: 1.7;
+  margin: 0 0 10px;
+}
+.domicile-rayon {
+  color: #397a35;
+  font-weight: 600;
+}
+.domicile-prix {
+  flex: 0 0 auto;
+  background: #e6f3e1;
+  color: #286b2b;
+  padding: 13px 20px;
+  border-radius: 30px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.tarifs-conclusion {
+  text-align: center;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 2vw, 1.375rem);
+  margin: 40px 0 0;
+}
+.tarifs-conclusion strong {
+  color: #28752c;
+}
+
+/* 07 — Présentation du salon */
+.about-art {
+  min-height: 320px;
+  border-radius: 36px;
+  background: linear-gradient(135deg, #e9f5f8, #eaf6ee);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+.art-circle {
+  font-size: clamp(4rem, 6vw, 6rem);
+  line-height: 1.3;
+}
+.art-circle span {
+  font-size: 0.75em;
+}
+.art-caption {
+  color: var(--green);
+  font-weight: 800;
+  margin-top: 12px;
+}
+
+/* 08 — Contact et pied de page */
+.contact-section {
+  background: #f8fbfc;
+}
+.contact-card a {
+  color: var(--blue);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+.contact-card .muted {
+  font-size: 0.84rem;
+  color: #839196;
+  margin-top: 12px;
+}
+.footer {
+  background: #e9f4ee;
+  padding: 35px 0 22px;
+  color: var(--navy);
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.footer-inner p {
+  font-size: 0.86rem;
+  margin: 8px 0 0;
+  color: #5c7370;
+}
+.footer-inner a {
+  text-decoration: none;
+  color: var(--blue);
+  font-weight: 700;
+}
+.legal {
+  border-top: 1px solid #cfdfd5;
+  margin-top: 25px;
+  padding-top: 14px;
+  font-size: 0.8rem;
+  color: #637a71;
+}
+.legal summary {
+  cursor: pointer;
+}
+
+/* 09 — Écrans larges (1600 px et plus) */
+@media (min-width: 1600px) {
+  :root {
+    --page-width: 1700px;
+  }
+  .hero-photo {
+    max-width: 95%;
+  }
+  .hero-photo img {
+    height: clamp(450px, 32vw, 620px);
+  }
+  .hero-grid {
+    gap: clamp(60px, 5vw, 110px);
+  }
+  .split {
+    gap: clamp(60px, 5vw, 110px);
+  }
+
+  .eyebrow span {
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+  }
+  .about-art {
+    min-height: 400px;
+    max-width: 700px;
+  }
+  .services,
+  .contact-grid,
+  .tarifs-grille {
+    gap: 30px;
+  }
+}
+
+/* 10 — Tablettes et petits ordinateurs (jusqu'à 1100 px) */
+@media (max-width: 1100px) {
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-block: 8px;
+  }
+  .nav nav {
+    justify-content: center;
+  }
+  .hero-grid,
+  .split {
+    gap: 35px;
+  }
+  .services,
+  .contact-grid,
+  .tarifs-grille {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .tarifs-domicile {
+    flex-wrap: wrap;
+  }
+  .domicile-prix {
+    margin-left: auto;
+  }
+}
+
+/* 11 — Navigation mobile et colonnes empilées (jusqu'à 760 px) */
+@media (max-width: 760px) {
+  html {
+    scroll-padding-top: 85px;
+  }
+  .container,
+  .tarifs-container {
+    width: min(calc(100% - 30px), 600px);
+  }
+  .nav {
+    min-height: 76px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 12px;
+    padding-block: 0;
+  }
+  .brand img {
+    width: 110px;
+    height: 65px;
+  }
+  .nav h1 {
+    font-size: clamp(0.85rem, 2.7vw, 1.1rem);
+  }
+  .menu-toggle {
+    display: block;
+    flex: 0 0 auto;
+  }
+  .nav nav {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: #fff;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    box-shadow: 0 12px 20px #0001;
+    max-height: calc(100dvh - 76px);
+    overflow-y: auto;
+  }
+  .nav nav.open {
+    display: flex;
+  }
+  .nav nav a {
+    padding: 14px 24px;
+    border-top: 1px solid var(--line);
+    border-radius: 0;
+  }
+  .hero {
+    padding: 45px 0 60px;
+  }
+  .hero-grid,
+  .split {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+  }
+  .hero-photo {
+    justify-self: stretch;
+    max-width: 100%;
+  }
+  .hero-photo img {
+    height: clamp(260px, 65vw, 420px);
+  }
+  .services,
+  .contact-grid,
+  .tarifs-grille {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+  .section {
+    padding: 65px 0;
+  }
+  .section-head {
+    margin-bottom: 30px;
+  }
+  .service,
+  .contact-card {
+    padding: 25px;
+  }
+  .info-card {
+    padding: 30px;
+    max-width: none;
+  }
+  .about-art {
+    min-height: 240px;
+  }
+  .tarifs-domicile {
+    padding: 24px;
+    gap: 15px;
+  }
+  .domicile-icone {
+    font-size: 34px;
+  }
+  .domicile-texte {
+    flex-basis: calc(100% - 55px);
+  }
+  .domicile-prix {
+    margin: 0;
+  }
+  .footer-inner {
+    flex-direction: column;
+  }
+}
+
+/* 12 — Petits téléphones (jusqu'à 380 px) */
+@media (max-width: 380px) {
+  .container,
+  .tarifs-container {
+    width: calc(100% - 24px);
+  }
+  .nav {
+    gap: 6px;
+  }
+  .brand img {
+    width: 78px;
+  }
+  .nav h1 {
+    font-size: 0.82rem;
+  }
+  .menu-toggle {
+    padding: 7px 10px;
+  }
+  .actions {
+    gap: 14px;
+  }
+  .btn {
+    width: 100%;
+    padding-inline: 14px;
+  }
+  .photo-sticker {
+    font-size: 0.7rem;
+    padding: 6px 10px;
+  }
+  .tarif-ligne {
+    padding: 16px 14px;
+    gap: 8px;
+  }
+  .tarif-ligne span {
+    font-size: 0.86rem;
+  }
+  .tarif-ligne strong {
+    font-size: 1rem;
+  }
+  .tarifs-domicile {
+    padding: 18px;
+  }
+  .domicile-texte {
+    flex-basis: 100%;
+  }
+}
+
+/* 13 — Accessibilité : respecter la réduction des animations */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
